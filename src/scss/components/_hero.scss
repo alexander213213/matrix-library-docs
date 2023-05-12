@@ -1,0 +1,170 @@
+@use "../abstracts/" as *;
+
+.hero {
+  width: 100%;
+  margin: 10em auto;
+  
+
+  // background-color: #f4f4f5;
+  .container {
+    width: 120em;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // outline: solid 1px black;
+
+    // transform: rotateY(0deg);
+    transition: transform 2s ease-in-out 0s;
+    transform-style: preserve-3d;
+
+    .display, .card {
+      transition: transform 2s ease-in-out 0s;
+    }
+  }
+  
+  .display {
+    height: 50em;
+    width: 50em;
+    padding: 0 3em;
+    background: $primary;
+    border-radius: 30px;
+    transform: translateX(10em) translateZ(-600px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    ul {
+      width: 60%;
+      height: 60%;
+      // background: gray;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      justify-items: center;
+      align-items: center;
+
+      color: $text-color;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 3em;
+
+      list-style: none;
+
+      position: relative;
+
+      &::before {
+        content: "";
+        height: 110%;
+        width: .2em;
+        background: $text-color;
+        position: absolute;
+        left: -1em;
+        border-radius: 30px;
+      }
+      
+      &::after {
+        content: "";
+        height: 110%;
+        width: .2em;
+        background: $text-color;
+        position: absolute;
+        right: -1em;
+        border-radius: 30px;
+      }
+    }
+  }
+
+  .card {
+    width: 25em;
+    height: auto;
+    background: rgba(lighten($text-color, 80%), 80%);
+    box-shadow: black 0 0 3px -2px;
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    
+    color: $text-color;
+
+    padding: 4em 4em;
+    transform: translateX(-10em) translateZ(600px);
+
+    h1 {
+      font-size: map-get($sizes, h1);
+      font-weight: map-get($weights, bold);
+      margin-bottom: .5em;
+    }
+
+    h4 {
+      font-size: map-get($sizes, h4);
+      font-weight: map-get($weights, regular);
+      margin-bottom: 1em;
+    }
+  }
+  
+  a {
+    width: 4.5em;
+    padding: .5em 1em;
+    border-radius: 30px;
+    background: $gradient;
+    
+    font-size: map-get($sizes, h3);
+    text-decoration: none;
+    color: #f4f4f5;
+    font-weight: map-get($weights, bold);
+    font-family: 'Open Sans', sans-serif;
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: .5em;
+    
+    margin: 0;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+
+    position: relative;
+
+    div {
+      position: absolute;
+      background: $secondary;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      border-radius: 30px;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 300ms ease-in-out 0s;
+    }
+
+    span {
+      z-index: 1;
+    }
+
+    svg {
+      font-size: 1em;
+      color: #f4f4f5;
+    }
+
+    &:hover, &:focus {
+      outline: none;
+      
+      div {
+        opacity: 100%;
+      }
+    }
+  }
+
+  &:hover .container:has(.display:hover) {
+    transform: rotateY(45deg);
+
+    .display, .card {
+      transform: rotateY(-45deg);
+    }
+  }
+}

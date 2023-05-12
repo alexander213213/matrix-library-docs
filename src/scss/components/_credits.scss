@@ -1,0 +1,32 @@
+@use "../abstracts/" as *;
+
+.credits {
+  color: $text-color;
+  width: 80%;
+  margin: 0 auto;
+
+
+  h1 {
+    font-size: map-get($sizes, h1);
+    margin-bottom: 1em;
+  }
+
+  .profiles {
+    box-shadow: 0 0 20px rgba(black, .15);
+    border-radius: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+
+    width: 15em;
+    height: 13em;
+    padding: 3em 1em;
+    img {
+      border-radius: 200px;
+      border: .2em solid rgba($text-color, 1);
+      width: 10em;
+    }
+  }
+}

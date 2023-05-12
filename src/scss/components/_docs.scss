@@ -1,0 +1,139 @@
+@use "../abstracts/" as *;
+
+.docs {
+  height: calc(100vh - 9em + 2px);
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr 5fr;
+
+  nav {
+    box-sizing: border-box;
+    background: lighten($text-color, 5%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    ul {
+      list-style: none;
+      color: lighten($text-color, 75%);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      font-size: map-get($sizes, h5);
+      font-weight: map-get($weights, medium);
+    }
+
+    li {
+      padding: map-get($sizes, h6) 0;
+      position: relative;
+
+      cursor: pointer;
+
+      &::selection {
+        background: none;
+      }
+
+      &::after {
+        content: "";
+        border-radius: 2px;
+        height: .1em;
+        width: 0%;
+        background: lighten($text-color, 75%);
+  
+        position: absolute;
+        bottom: .5em;
+        left: 0;
+  
+        transition: width 250ms ease-out;
+      }
+  
+      &:focus-visible {
+        outline: none;
+      }
+  
+      &:hover::after , &:focus-visible::after {
+        width: 100%;
+      }
+    }
+  }
+
+  main {
+    background: lighten($text-color, 90%);
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}
+
+.content-container {
+  width: 70%;
+  margin: 0 0 0 10%;
+  padding: /* map-get($sizes, h1) */5em;
+  color: $text-color;
+
+  .block {
+    margin: map-get($sizes, h1) 0;
+  }
+
+  h1 {
+    font-size: map-get($sizes, h1);
+    margin-bottom: map-get($sizes, h1);
+    font-weight: map-get($weights, bold);
+  }
+  
+  h2 {
+    font-size: map-get($sizes, h2);
+    margin-bottom: map-get($sizes, h5);
+    font-weight: map-get($weights, bold);
+  }
+  
+  p {
+    font-size: map-get($sizes, h5);
+    font-weight: map-get($weights, regular);
+    margin-bottom: map-get($sizes, h5);
+    line-height: 1.5;
+  }
+  
+  pre {
+    font-size: map-get($sizes, h5);
+    margin-bottom: map-get($sizes, h5);
+    padding: 1em !important; 
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  table, th, td {
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: map-get($sizes, h4) map-get($sizes, h4);
+  }
+
+  table {
+    width: 100%;
+    font-size: map-get($sizes, h5);
+    margin: map-get($sizes, h1) 0;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(black, .15);
+
+    thead tr {
+      background: $secondary;
+      color: lighten($text-color, 75%);
+      text-align: left;
+      font-weight: map-get($weights, bold);
+    }
+  }
+
+  tbody tr:last-of-type {
+    border-bottom: 3px solid $secondary;
+  }
+
+  tbody tr:nth-of-type(even) {
+    background: lighten($text-color, 70%);
+  }
+}

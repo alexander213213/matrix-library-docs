@@ -1,0 +1,19 @@
+$primary: #6CB4EB;
+$secondary: #577DD4;
+$gradient: linear-gradient(90deg, $secondary, $primary 75%);
+$text-color: #2F3A43;
+
+$sizes: (
+  h1: 3.052em,
+  h2: 2.441em,
+  h3: 1.953em,
+  h4: 1.563em,
+  h5: 1.25em,
+  h6: 1em
+);
+
+$weights: (
+  regular: 400,
+  medium: 500,
+  bold: 700
+)

@@ -1,0 +1,70 @@
+@use "./abstracts" as *;
+@use "./components/" as *;
+
+@media screen and (max-width: 800px) {
+  body {
+    font-size: .5rem;
+  }
+
+  header {
+    width: 80%;
+    font-size: .5rem;
+
+    padding: 2em 10%;
+    .logo {
+      gap: .5em;
+    }
+    nav {
+      ul {
+        gap: .5em;
+      }
+
+      a {
+        padding: 1em 0;
+
+        &::after {
+          bottom: .5em;
+        }
+      }
+    }
+  }
+  
+  .hero {
+    .container {
+      width: 90%;
+      justify-content: center;
+      .display {
+        display: none ;
+        width: 0;
+      }
+
+      .card {
+        font-size: .8rem;
+        width: 100%;
+        box-shadow: none;
+        transform: none;
+        transition: none;
+      }
+    }
+  }
+
+  .docs {
+    nav {
+      padding: 0 1em;
+    }
+    .content-container {
+      width: 75%;
+      margin-left: 0em;
+      padding: 3em;
+
+      h2 {
+        font-size: 1.4em;
+        margin-bottom: .5em;
+      }
+    }
+  }
+
+  footer {
+    padding: 1em 12.5%;
+  }
+}

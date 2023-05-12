@@ -1,0 +1,79 @@
+@use "../abstracts/" as *;
+
+header {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 2em 12.5%;
+
+  background: $primary;
+  
+  color: $text-color;
+
+  z-index: 2;
+  box-shadow: 0 -6px 10px 0 black;
+
+  .logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+  }
+
+  img {
+    width: 6em;
+  }
+
+  h4 {
+    font-size: map-get($sizes, h4);
+    font-weight: map-get($weights, regular);
+    cursor: default;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: map-get($sizes, h1);
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    color: $text-color;
+    font-family: 'Open Sans', sans-serif;
+    font-size: map-get($sizes, h4);
+    font-weight: map-get($weights, regular);
+
+    text-decoration: none;
+
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      border-radius: 2px;
+      height: .1em;
+      width: 0%;
+      background: $text-color;
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      transition: width 250ms ease-out;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:hover::after , &:focus-visible::after {
+      width: 100%;
+    }
+  }
+}

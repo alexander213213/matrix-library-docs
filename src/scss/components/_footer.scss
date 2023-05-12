@@ -1,0 +1,67 @@
+@use "../abstracts/" as *;
+
+footer {
+  width: 75%;
+  min-height: 10rem;
+  background: $text-color;
+  padding: 3em 12.5%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: map-get($sizes, h3);
+
+
+  img {
+    width: 3em;
+    color: lighten($text-color, 75%);
+  }
+
+  .container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // align-items: flex-start;
+    gap: 1.5em;
+  }
+
+  h3 {
+    color: lighten($text-color, 75%);
+    
+  }
+  
+  ul {
+    color: lighten($text-color, 50%);
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    i::before {
+      color: lighten($text-color, 75%);
+      display: inline-block;
+      font-size: 2em;
+    }
+  }
+
+  .accounts {
+    flex-direction: row;
+    align-items: center;
+    gap: 2em;
+    margin-top: .5em;
+
+    .email {
+      background: rgba(#000, 0);
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
